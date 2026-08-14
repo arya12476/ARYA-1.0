@@ -1,0 +1,60 @@
+class Bird {
+    String type;
+
+    Bird(String type) {
+        this.type = type;
+    }
+
+    void showType() {
+        System.out.println("Bird Type : " + type);
+    }
+}
+
+class MigratoryBird extends Bird {
+
+    static String season = "Winter";
+
+    String name;
+    String destination;
+    double distance;
+
+    MigratoryBird(String type, String name, String destination, double distance) {
+        super(type);
+        this.name = name;
+        this.destination = destination;
+        this.distance = distance;
+    }
+
+    void displayBird() {
+        super.showType();
+        System.out.println("Migration Season : " + season);
+        System.out.println("Bird Name : " + name);
+        System.out.println("Destination : " + destination);
+        System.out.println("Distance : " + distance + " km");
+    }
+
+    static void showSeason() {
+        System.out.println("Migration Season : " + season);
+    }
+}
+
+public class Main {
+
+    public static void main(String[] args) {
+
+        MigratoryBird.showSeason();
+
+        System.out.println();
+
+        MigratoryBird b1 = new MigratoryBird("Migratory", "Siberian Crane", "India", 5000);
+        MigratoryBird b2 = new MigratoryBird("Non-Migratory", "Peacock", "India", 0);
+
+        System.out.println("Migratory Bird Details");
+        b1.displayBird();
+
+        System.out.println();
+
+        System.out.println("Non-Migratory Bird Details");
+        b2.displayBird();
+    }
+}
